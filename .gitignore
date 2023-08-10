@@ -6,6 +6,7 @@ target/
 
 README.md
 /src/main/resources/certs/
+/src/main/resources/application.properties
 
 ### STS ###
 .apt_generated
