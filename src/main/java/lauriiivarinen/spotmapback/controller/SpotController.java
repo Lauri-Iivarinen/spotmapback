@@ -35,8 +35,7 @@ public class SpotController {
 	public Spot addSpot(@RequestBody Spot spot, Authentication auth) {
 		System.out.println("Adding spot to user " + auth.getName());
 		User user = userRepo.findByUsername(auth.getName());
-		System.out.println(spot);
-		System.out.println();
+		spot.setUser(user);
 		return spotRepo.save(spot);
 	}
 	
@@ -60,6 +59,18 @@ public class SpotController {
 		spotRepo.save(spot);
 		userRepo.save(user);
 		return spot;
+	}
+	
+	@GetMapping("/api/spots/delete/{id}")
+	public String deleteSpot(@PathVariable ("id") Long id, Authentication auth) {
+		User user = userRepo.findByUsername(auth.getName());
+		Spot spot = spotRepo.findById(id).get();
+		if (spot.getUser().equals(user)) {
+			System.out.println("deleting spot");
+			spotRepo.delete(spot);
+			return "success";
+		}
+		return "failed";
 	}
 	
 	

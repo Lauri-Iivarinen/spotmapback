@@ -25,7 +25,7 @@ public class SpotmapbackApplication {
 	public CommandLineRunner launchTestBook (UserRepository userRepo, SpotRepository spotRepo) {
 		return (args) ->{
 			
-			BCryptPasswordEncoder bc = new BCryptPasswordEncoder();
+			
 			 
 			//----TEST DATA FOR h2 DATABASE, WILL BE REMOVED ON SUCCESFULL LAUNCH--
 			/*

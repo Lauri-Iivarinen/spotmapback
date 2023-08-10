@@ -35,12 +35,15 @@ public class User {
 	
 	
 	@ManyToMany
-	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user"})
+	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user", "comments"})
 	private List<Spot> likes = new ArrayList<Spot>();
 	
 	@ManyToMany
-	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user"})
+	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user", "comments"})
 	private List<Spot> dislikes = new ArrayList<Spot>();
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private List<Comment> comments = new ArrayList<Comment>();
 	
 	public void addLike(Spot spot) {
 		if (!this.likes.contains(spot)) this.likes.add(spot);
@@ -53,10 +56,13 @@ public class User {
 	}
 	
 	public List<Spot> getLikes() {
-		return likes;
+		return this.likes;
 	}
 	public List<Spot> getDislikes() {
-		return dislikes;
+		return this.dislikes;
+	}
+	public List<Comment> getComments(){
+		return this.comments;
 	}
 	/*
 	
@@ -138,6 +144,8 @@ public class User {
 	public String getRole() {
 		return role;
 	}
+	
+	
 
 	@Override
 	public String toString() {
