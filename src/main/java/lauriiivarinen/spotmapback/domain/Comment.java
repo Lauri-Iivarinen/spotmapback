@@ -1,5 +1,6 @@
 package lauriiivarinen.spotmapback.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -23,7 +24,7 @@ public class Comment {
 	
 	@ManyToOne
 	@JoinColumn(name="id")
-	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user", "comments"})
+	@JsonIgnore
 	private Spot spot;
 	
 	@ManyToOne

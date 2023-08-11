@@ -34,11 +34,11 @@ public class User {
 	private List<Spot> spots;
 	
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="likers")
 	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user", "comments"})
 	private List<Spot> likes = new ArrayList<Spot>();
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="dislikers")
 	@JsonIgnoreProperties({"name", "image", "description", "lon", "lat", "likes", "dislikes", "user", "comments"})
 	private List<Spot> dislikes = new ArrayList<Spot>();
 	

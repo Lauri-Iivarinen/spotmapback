@@ -53,7 +53,7 @@ public class Spot {
 	@ManyToMany
 	private List<User> dislikers = new ArrayList<User>();
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "spot")
+	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval=true, mappedBy = "spot")
 	private List<Comment> comments = new ArrayList<Comment>();
 
 	public Spot(String name, String image, String description, double lon, double lat, User user) {
