@@ -54,6 +54,7 @@ public class Spot {
 	private List<User> dislikers = new ArrayList<User>();
 	
 	@OneToMany(cascade = CascadeType.PERSIST, orphanRemoval=true, mappedBy = "spot")
+	@JsonIgnoreProperties({"spot"})
 	private List<Comment> comments = new ArrayList<Comment>();
 
 	public Spot(String name, String image, String description, double lon, double lat, User user) {

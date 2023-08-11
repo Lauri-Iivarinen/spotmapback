@@ -24,7 +24,6 @@ public class Comment {
 	
 	@ManyToOne
 	@JoinColumn(name="id")
-	@JsonIgnore
 	private Spot spot;
 	
 	@ManyToOne
