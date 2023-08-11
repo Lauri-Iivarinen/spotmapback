@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 README.md
-#/src/main/resources/certs/
+/src/main/resources/certs/
 
 ### STS ###
 .apt_generated
