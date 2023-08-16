@@ -33,7 +33,7 @@ public class CommentController {
 		User user = userRepo.findByUsername(auth.getName());
 		comment.setUser(user);
 		commentRepo.save(comment);
-		return "idk";
+		return "success";
 	}
 	
 	@GetMapping("/api/comments")
