@@ -51,7 +51,7 @@ public class SpotController {
 	}
 
 	@GetMapping("/api/spots/{id}")
-	public Spot likeSpot(@PathVariable ("id") Long id, Authentication auth) {
+	public Spot getSpot(@PathVariable ("id") Long id, Authentication auth) {
 		Spot spot = spotRepo.findById(id).get();
 		return spot;
 	}
