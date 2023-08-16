@@ -49,6 +49,12 @@ public class SpotController {
 		userRepo.save(user);
 		return spot;
 	}
+
+	@GetMapping("/api/spots/{id}")
+	public Spot likeSpot(@PathVariable ("id") Long id, Authentication auth) {
+		Spot spot = spotRepo.findById(id).get();
+		return spot;
+	}
 	
 	@PostMapping("/api/spots/dislike/{id}")
 	public Spot dislikeSpot(@PathVariable ("id") Long id, Authentication auth) {
