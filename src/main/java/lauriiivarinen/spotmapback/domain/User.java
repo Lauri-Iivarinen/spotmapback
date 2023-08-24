@@ -64,23 +64,6 @@ public class User {
 	public List<Comment> getComments(){
 		return this.comments;
 	}
-	/*
-	
-
-	public void setLikes(List<Spot> likes) {
-		this.likes = likes;
-	}
-
-	
-
-	public void setDislikes(List<Spot> dislikes) {
-		this.dislikes = dislikes;
-	}
-	
-	
-	
-	
-	// */
 
 	@Column(nullable=false)
 	private String role;

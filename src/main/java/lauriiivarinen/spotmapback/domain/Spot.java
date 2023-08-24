@@ -77,6 +77,9 @@ public class Spot {
 		if (!this.likers.contains(user)) {
 			likers.add(user);
 			this.likes++;
+		}else {
+			this.likers.remove(user);
+			this.likes--;
 		}
 		if (this.dislikers.contains(user)) {
 			dislikers.remove(user);
@@ -92,6 +95,9 @@ public class Spot {
 		if (!this.dislikers.contains(user)) {
 			dislikers.add(user);
 			this.dislikes++;
+		}else {
+			this.dislikers.remove(user);
+			this.dislikes--;
 		}
 	}
 
