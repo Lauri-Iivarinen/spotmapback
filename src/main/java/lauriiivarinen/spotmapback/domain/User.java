@@ -47,11 +47,13 @@ public class User {
 	
 	public void addLike(Spot spot) {
 		if (!this.likes.contains(spot)) this.likes.add(spot);
+		else this.likes.remove(spot);
 		if (this.dislikes.contains(spot)) this.dislikes.remove(spot);	
 	}
 	
 	public void addDislike(Spot spot) {
 		if (!this.dislikes.contains(spot)) this.dislikes.add(spot);
+		else this.dislikes.remove(spot);
 		if (this.likes.contains(spot)) this.likes.remove(spot);
 	}
 	
@@ -78,8 +80,6 @@ public class User {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 	
 	public Long getUserId() {
 		return userId;
