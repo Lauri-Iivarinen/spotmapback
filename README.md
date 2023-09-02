@@ -195,13 +195,13 @@ return  : string
 
 ```mermaid
 classDiagram
-    users -- spots
-    users -- comments
-    users -- spot_likes
-    users -- spot_dislikes
-    spot_likes -- spots
-    spot_dislikes -- spots
-    comments -- spots
+    users "1"--"0..*" spots
+    users "1"--"0..*" comments
+    users "0..*"--"0..*" spot_likes
+    users "0..*"--"0..*" spot_dislikes
+    spot_likes "0..*"--"0..*" spots
+    spot_dislikes "0..*"--"0..*" spots
+    comments "0..*"--"1" spots
     class users{
         Long userId [PK]
         String username
