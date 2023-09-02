@@ -190,3 +190,46 @@ return  :  List<*Comment*>
 return  : string
 
 </Details>
+
+# Database
+
+```mermaid
+classDiagram
+    users -- spots
+    users -- comments
+    users -- spot_likes
+    users -- spot_dislikes
+    spot_likes -- spots
+    spot_dislikes -- spots
+    comments -- spots
+    class users{
+        Long userId [PK]
+        String username
+        String passwordHash
+    }
+    class spots{
+        Long id [PK]
+        Long user.id [FK]
+        String name
+        String image
+        String description
+        Double lon
+        Double lat
+        Int likes
+        Int dislikes
+    }
+    class comments{
+        Long commentId [PK]
+        String comment
+        Long spot.id [FK]
+        Long users.userId [FK]
+    }
+    class spot_likes{
+        Long users.userId [PK]
+        Long spots.id [PK]
+    }
+    class spot_dislikes{
+        Long users.userId [PK]
+        Long spots.id [PK]
+    }
+```
