@@ -193,14 +193,16 @@ return  : string
 
 # Database
 
+*NOTE* first time using mermaid so there may be errors :)
+
 ```mermaid
 classDiagram
+    users "1"--"0..*" spot_likes
+    users "1"--"0..*" spot_dislikes
     users "1"--"0..*" spots
     users "1"--"0..*" comments
-    users "0..*"--"0..*" spot_likes
-    users "0..*"--"0..*" spot_dislikes
-    spot_likes "0..*"--"0..*" spots
-    spot_dislikes "0..*"--"0..*" spots
+    spot_likes "0..*"--"1" spots
+    spot_dislikes "0..*"--"1" spots
     comments "0..*"--"1" spots
     class users{
         Long userId [PK]
